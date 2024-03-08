@@ -6,8 +6,6 @@ exports.up = (knex) => {
         table.string("autor").notNullable();
         table.string("categoria").notNullable();
         table.timestamp('ano').notNullable();
-    
-        table.integer("user_id").unsigned().index().references("id").inTable("users")
 
     })
 };

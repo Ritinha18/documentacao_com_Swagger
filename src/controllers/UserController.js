@@ -1,11 +1,9 @@
-const knex = require("../database/knex")
-
+const knex = require("../database/knex");
 class UserController {
 
     async createUser(req, res) {
         const {name, email, telefone, password, CPF} = req.body
 
-        const isAdmin = false
 
         await knex("users").insert({name, email, telefone, password, CPF})
 
