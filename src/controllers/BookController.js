@@ -1,4 +1,4 @@
-const knex = require("../database/knex")
+const knex = require("../database")
 
 class BookController{
 
@@ -14,7 +14,7 @@ class BookController{
             book_id,
             disponibilidade: true
         }
-        await knex("books").insert({titulo: task.titulo, autor: task.autor, ano: task.ano, categoria: task.categoria, disponibilidade: task.disponibilidade})
+        await knex("books").insert({titulo: book.titulo, autor: book.autor, ano: book.ano, categoria: book.categoria, disponibilidade: book.disponibilidade})
 
         res.status(201).json("Livro criado com sucesso!")
     }
