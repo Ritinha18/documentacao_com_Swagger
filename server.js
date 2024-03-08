@@ -1,4 +1,4 @@
-const express = require('express')
+/*const express = require('express')
 const { v4: uuidV4 } = require('uuid')
 
 const app = express()
@@ -40,7 +40,7 @@ app.get("/usuario", (req, res) => {
 
 /*-------------------------------------------------------------------------------------*/
 
-app.post("/book", (req, res) => {
+/*app.post("/book", (req, res) => {
 
     const {titulo, autor, paginas, categoria} = req.body
 
@@ -66,7 +66,7 @@ app.get("/book", (req, res) => {
 
 
 /*--------------------------------------------------------------------------------------*/
-app.patch("/emprestimo/:id_book", (req, res) => {
+/*app.patch("/emprestimo/:id_book", (req, res) => {
     const {id_book} = req.params;
 
     const {nome} = req;
@@ -101,7 +101,7 @@ app.patch("/emprestimo/:id_book", (req, res) => {
 })
 /*------------------------------------------------------------------------------------*/
 
-app.patch("/devolucao/:id_book", (req, res) => {
+/*app.patch("/devolucao/:id_book", (req, res) => {
     const {id_book} = req.params;
 
     const {nome} = req;

@@ -1,6 +1,6 @@
 const knex = require("../database/knex")
 
-class UserControler {
+class UserController {
 
     async createUser(req, res) {
         const {name, email, telefone, password, CPF} = req.body
