@@ -7,6 +7,7 @@ exports.up = (knex) => {
         table.string("telefone").notNullable();
         table.string("CPF").notNullable();
         table.string("password").notNullable();
+        table.boolean("isAdmin").defaultTo("false");
 
         table.integer("book_id").unsigned().index().references("id").inTable("book")
 
@@ -14,6 +15,6 @@ exports.up = (knex) => {
 };
 
 
-exports.down = function(knex) {
+exports.down = (knex) => {
   return knex.schema.dropTableIfExists("users")
 };
