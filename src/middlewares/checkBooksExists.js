@@ -1,11 +1,11 @@
-const knex = require("../database");
+const knex = require("../database/knex");
 
 
 async function checkBooksExists(req, res, next) {
     const {id} = req.params
-    const [book] = await knex(`SELECT * FROM books WHERE id = ${id}`)
+    const [book] = await knex("books").where({id})
 
-   if(book.length === 0) {
+   if(!book) {
         return res.status(400).json("Livro não encontrado!")
    }
    next()

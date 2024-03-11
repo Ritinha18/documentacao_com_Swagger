@@ -3,7 +3,6 @@ const knex = require("../database/knex")
 class BookController{
 
     async createBook(req, res) {
-        const {user_id} = req.params
         const {titulo, autor, ano, categoria} = req.body
 
         const book = {
@@ -12,7 +11,6 @@ class BookController{
             ano, 
             categoria,
             disponibilidade: true,
-            user_id
         }
         await knex("books").insert({titulo: book.titulo, autor: book.autor, ano: book.ano, categoria: book.categoria, disponibilidade: book.disponibilidade})
 
