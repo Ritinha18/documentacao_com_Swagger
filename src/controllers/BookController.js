@@ -1,4 +1,4 @@
-const knex = require("../database")
+const knex = require("../database/knex")
 
 class BookController{
 
@@ -11,8 +11,8 @@ class BookController{
             autor, 
             ano, 
             categoria,
-            book_id,
-            disponibilidade: true
+            disponibilidade: true,
+            user_id
         }
         await knex("books").insert({titulo: book.titulo, autor: book.autor, ano: book.ano, categoria: book.categoria, disponibilidade: book.disponibilidade})
 
@@ -45,7 +45,7 @@ class BookController{
     async updateBookStatus(req, res) {
     const {id} = req.params
     
-    await knex("books").where({id}).update({disponibilidade: true})
+    await knex("books").where({id}).update({disponibilidade: false})
        
     return res.status(200).json("Status atualizado com sucesso!!")
 }
@@ -57,7 +57,6 @@ class BookController{
     return res.status(200).json("Registro deletado com sucesso")
 }
     
-
 }
 
 module.exports = BookController

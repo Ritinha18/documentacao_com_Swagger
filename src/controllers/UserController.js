@@ -6,7 +6,7 @@ class UserController {
 
         const isAdmin = false
 
-        await knex("users").insert({name, email, telefone, password, CPF})
+        await knex("users").insert({name, email, telefone, password, CPF, isAdmin})
 
         return res.status(201).json("Usuário cadastrado com sucesso!")
     }
