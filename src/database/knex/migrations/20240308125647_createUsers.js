@@ -8,7 +8,7 @@ exports.up = (knex) => {
         table.string("CPF").notNullable();
         table.string("password").notNullable();
         table.boolean("isAdmin").defaultTo("false");
-        table.increments('book_id').primary();
+        table.increments("book_id").index();
 
         table.integer("book_id").unsigned().index().references("id").inTable("book")
 

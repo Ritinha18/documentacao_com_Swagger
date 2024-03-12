@@ -6,6 +6,7 @@ exports.up = (knex) => {
         table.string("autor").notNullable();
         table.string("categoria").notNullable();
         table.string('ano').notNullable();
+        table.string('paginas').notNullable();
         table.boolean("disponibilidade").defaultTo("false")
     })
 };
