@@ -9,7 +9,7 @@ const bookController = new BookController()
 
 bookRoutes.post("/:user_id", checkUsersExists, bookController.createBook )
 
-bookRoutes.get("", bookController.listBook)
+bookRoutes.get("/:user_id", bookController.listBook)
 
 bookRoutes.get("/:id", checkBooksExists, bookController.listBookById)
 
