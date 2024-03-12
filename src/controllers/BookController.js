@@ -3,16 +3,16 @@ const knex = require("../database/knex")
 class BookController{
 
     async createBook(req, res) {
-        const {titulo, autor, ano, categoria} = req.body
+        const {titulo, autor, ano, categoria, paginas} = req.body
 
         const book = {
             titulo, 
             autor, 
-            ano, 
+            ano,
+            paginas, 
             categoria,
-            disponibilidade: true,
         }
-        await knex("books").insert({titulo: book.titulo, autor: book.autor, ano: book.ano, categoria: book.categoria, disponibilidade: book.disponibilidade})
+        await knex("books").insert({titulo: book.titulo, autor: book.autor, ano: book.ano, paginas: book.paginas, categoria: book.categoria, disponibilidade: book.disponibilidade})
 
         res.status(201).json("Livro criado com sucesso!")
     }

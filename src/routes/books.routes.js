@@ -7,16 +7,16 @@ const checkUsersExists = require("../middlewares/checkUsersExists")
 const bookRoutes = Router()
 const bookController = new BookController()
 
-bookRoutes.post("/books/:user_id", checkUsersExists, bookController.createBook )
+bookRoutes.post("/:user_id", checkUsersExists, bookController.createBook )
 
-bookRoutes.get("/books", bookController.listBook)
+bookRoutes.get("", bookController.listBook)
 
-bookRoutes.get("/books/:id", checkBooksExists, bookController.listBookById)
+bookRoutes.get("/:id", checkBooksExists, bookController.listBookById)
 
-bookRoutes.put("/books/:id", checkBooksExists, bookController.updateBook)
+bookRoutes.put("/:id", checkBooksExists, bookController.updateBook)
 
-bookRoutes.patch("/books/status/:id", checkBooksExists, bookController.updateBookStatus)
+bookRoutes.patch("/status/:id", checkBooksExists, bookController.updateBookStatus)
 
-bookRoutes.delete("/books/:id", checkBooksExists, bookController.deleteBook)
+bookRoutes.delete("/:id", checkBooksExists, bookController.deleteBook)
 
 module.exports = bookRoutes

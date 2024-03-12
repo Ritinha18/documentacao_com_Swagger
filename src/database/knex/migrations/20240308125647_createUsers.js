@@ -8,9 +8,9 @@ exports.up = (knex) => {
         table.string("CPF").notNullable();
         table.string("password").notNullable();
         table.boolean("isAdmin").defaultTo("false");
-        table.increments("book_id").index();
 
-        table.integer("book_id").unsigned().index().references("id").inTable("book")
+        table.timestamp('created_at').default(knex.fn.now());
+        table.timestamp('updated_at').default(knex.fn.now());
 
     }) 
 };

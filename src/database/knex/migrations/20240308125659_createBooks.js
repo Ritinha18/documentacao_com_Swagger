@@ -6,8 +6,11 @@ exports.up = (knex) => {
         table.string("autor").notNullable();
         table.string("categoria").notNullable();
         table.string('ano').notNullable();
-        table.string('paginas').notNullable();
-        table.boolean("disponibilidade").defaultTo("false")
+        table.integer('paginas').notNullable();
+        table.boolean("disponibilidade").defaultTo('true');
+
+        table.timestamp('created_at').default(knex.fn.now());
+        table.timestamp('updated_at').default(knex.fn.now());
     })
 };
 
