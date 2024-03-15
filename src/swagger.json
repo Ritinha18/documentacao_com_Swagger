@@ -76,8 +76,27 @@
                 "tags": ["users"],
                 "summary": "Listar usuários criados",
                 "description": "Listar os usuários",
+                "operationId": "findUsersByStatus",
+        "parameters": [
+          {
+            "name": "status",
+            "in": "query",
+            "description": "Status values that need to be considered for filter",
+            "required": false,
+            "explode": true,
+            "schema": {
+              "type": "string",
+              "default": "available",
+              "enum": [
+                "available",
+                "pending",
+                "sold"
+              ]
+            }
+          }
+        ],
                
-                "responses": {
+                "responses": { 
                     "400": {
                         "description": "Lista de usuários não criada!" 
                     },
